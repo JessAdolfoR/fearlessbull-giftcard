@@ -1,29 +1,18 @@
-import Image from 'next/image';
-import { useSelector, useDispatch } from 'react-redux';
+import Image from "next/image";
+import { useSelector, useDispatch } from "react-redux";
 import {
   incrementQuantity,
   decrementQuantity,
   removeFromCart,
-} from '../redux/cart.slice';
-import styles from '../styles/CartPage.module.css';
-import { SendSPLTokenToAddress } from '../components/wallet/ButtonSpl';
-import { useRouter } from 'next/router';
-import React, { useState, useEffect } from 'react'
+} from "../redux/cart.slice";
+import styles from "../styles/CartPage.module.css";
+import { SendSPLTokenToAddress } from "../components/wallet/ButtonSpl";
+import { useRouter } from "next/router";
 
-const CartPage = () => {
+const CartPage = ({ coins }) => {
   const cart = useSelector((state) => state.cart);
   const dispatch = useDispatch();
-    const [coin, setCoin] = useState({})
-    const router = useRouter();
-    const getCoin=async()=>{
-      let response = await fetch('https://api.coingecko.com/api/v3/simple/price?ids=solana&vs_currencies=usd')
-      const coins = await response.json();
-      setCoin(coins)
-    return coins;
-    }
-    useEffect(() => {
-      getCoin()
-  },[])
+  const router = useRouter();
   const getTotalPrice = () => {
     return cart.reduce(
       (accumulator, item) => accumulator + item.quantity * item.price,
@@ -67,9 +56,12 @@ const CartPage = () => {
               <p>$ {item.quantity * item.price}</p>
             </div>
           ))}
-          <h2>Grand Total: $ {getTotalPrice()}/ Total Token:{getTotalPrice() / coin.solana?.usd} </h2>
-          Today's price of the coin {coin.solana?.usd} 
-          <SendSPLTokenToAddress/>
+          <h2>
+            Grand Total: $ {getTotalPrice()}/ Total Token:
+            {getTotalPrice() / coins.solana?.usd}{" "}
+          </h2>
+          Today's price of the coin {coins.solana?.usd}
+          <SendSPLTokenToAddress />
         </>
       )}
     </div>
@@ -77,3 +69,10 @@ const CartPage = () => {
 };
 
 export default CartPage;
+export async function getServerSideProps(ctx) {
+  let response = await fetch(
+    "https://api.coingecko.com/api/v3/simple/price?ids=solana&vs_currencies=usd"
+  );
+  const coins = await response.json();
+  return { props: { coins } };
+}
