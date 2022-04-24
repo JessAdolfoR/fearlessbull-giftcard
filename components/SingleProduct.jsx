@@ -17,7 +17,7 @@ const SingleProduct = ({ product }) => {
           </Link>
         </div>
         <div className={styles.col4}>
-          <h4 className={styles.title}>{product.product}</h4>
+          <h2 className={styles.title}>{product.product}</h2>
           <h5 className={styles.category}>{product.category}</h5>
           <label className="form-cell-name">
             Value: <strong className="form-current-value">${value}</strong>
