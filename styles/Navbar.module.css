@@ -13,14 +13,17 @@
 
 .links {
   display: flex;
+  align-items: center;
 }
-.pLink{
-  margin-top:0;
+.pLink {
+  margin-top: 0;
+  margin-bottom: 0;
 }
 .navlink {
   list-style: none;
   margin: 0 0.75rem;
   text-transform: uppercase;
+  cursor: pointer;
 }
 
 .navlink a {

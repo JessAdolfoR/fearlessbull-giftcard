@@ -16,7 +16,9 @@
   font-size: 1rem;
   font-weight: 600;
 }
-
+.imageLink {
+  cursor: pointer;
+}
 .category {
   font-size: 0.8rem;
   text-transform: uppercase;

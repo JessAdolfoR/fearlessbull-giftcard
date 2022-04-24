@@ -1,7 +1,10 @@
-import Link from 'next/link';
-import { useSelector } from 'react-redux';
-import styles from '../styles/Navbar.module.css';
-import { WalletMultiButton, WalletDisconnectButton } from '@solana/wallet-adapter-react-ui';
+import Link from "next/link";
+import { useSelector } from "react-redux";
+import styles from "../styles/Navbar.module.css";
+import {
+  WalletMultiButton,
+  WalletDisconnectButton,
+} from "@solana/wallet-adapter-react-ui";
 const Navbar = () => {
   const cart = useSelector((state) => state.cart);
 
@@ -13,9 +16,9 @@ const Navbar = () => {
     <nav className={styles.navbar}>
       <h6 className={styles.logo}>GamesKart</h6>
       <ul className={styles.links}>
-      <div className={styles.walletButtons}>
-                <WalletMultiButton />
-                {/* <WalletDisconnectButton /> */}
+        <div className={styles.walletButtons}>
+          <WalletMultiButton />
+          {/* <WalletDisconnectButton /> */}
         </div>
         <li className={styles.navlink}>
           <Link href="/">Home</Link>
