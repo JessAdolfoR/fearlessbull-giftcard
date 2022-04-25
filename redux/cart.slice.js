@@ -29,6 +29,9 @@ const cartSlice = createSlice({
       const index = state.findIndex((item) => item.id === action.payload);
       state.splice(index, 1);
     },
+    clearCart: (state) => {
+      state = [];
+    },
   },
 });
 
@@ -39,4 +42,5 @@ export const {
   incrementQuantity,
   decrementQuantity,
   removeFromCart,
+  clearCart,
 } = cartSlice.actions;

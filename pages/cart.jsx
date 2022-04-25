@@ -8,6 +8,7 @@ import {
 import styles from "../styles/CartPage.module.css";
 import { SendSPLTokenToAddress } from "../components/wallet/ButtonSpl";
 import { useRouter } from "next/router";
+import { ToastContainer } from "react-nextjs-toast";
 const CartPage = ({ coins }) => {
   const cart = useSelector((state) => state.cart);
   const dispatch = useDispatch();
@@ -21,6 +22,7 @@ const CartPage = ({ coins }) => {
 
   return (
     <div className={styles.container}>
+      <ToastContainer />
       {cart.length === 0 ? (
         <h1>Your Cart is Empty!</h1>
       ) : (
@@ -60,7 +62,7 @@ const CartPage = ({ coins }) => {
             {getTotalPrice() / coins.solana?.usd}{" "}
           </h2>
           Today's price of the coin {coins.solana?.usd}
-          <SendSPLTokenToAddress />
+          <SendSPLTokenToAddress amount={getTotalPrice() / coins.solana?.usd} />
         </>
       )}
     </div>
