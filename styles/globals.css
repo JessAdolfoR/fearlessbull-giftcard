@@ -21,6 +21,7 @@ a {
   border: none;
   padding: 0.5rem 1rem;
   margin-left: 1rem;
+  cursor: pointer;
 }
 
 input::-webkit-outer-spin-button,
