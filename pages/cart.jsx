@@ -8,7 +8,6 @@ import {
 import styles from "../styles/CartPage.module.css";
 import { SendSPLTokenToAddress } from "../components/wallet/ButtonSpl";
 import { useRouter } from "next/router";
-
 const CartPage = ({ coins }) => {
   const cart = useSelector((state) => state.cart);
   const dispatch = useDispatch();

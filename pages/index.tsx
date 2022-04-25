@@ -1,19 +1,11 @@
-import { WalletDisconnectButton, WalletMultiButton } from '@solana/wallet-adapter-react-ui';
-import type { NextPage } from 'next';
-import CategoryCard from '../components/CategoryCard';
-
-import Head from 'next/head';
-import Image from 'next/image';
-import styles from '../styles/Home.module.css';
-import { SendOneLamportToRandomAddress } from '../components/wallet/ButtonTransition';
-import { SendSPLTokenToAddress } from '../components/wallet/ButtonSpl';
-import SendTransaction from '../components/wallet/sendTransaction';
+import type { NextPage } from "next";
+import CategoryCard from "../components/CategoryCard";
+import styles from "../styles/Home.module.css";
 
 const Home: NextPage = () => {
-    return (
-
-            <main className={styles.main}>
-                   <div className={styles.small}>
+  return (
+    <main className={styles.main}>
+      <div className={styles.small}>
         <CategoryCard image="https://imgur.com/uKQqsuA.png" name="Xbox" />
         <CategoryCard image="https://imgur.com/3Y1DLYC.png" name="PS5" />
         <CategoryCard image="https://imgur.com/Dm212HS.png" name="Switch" />
@@ -25,17 +17,15 @@ const Home: NextPage = () => {
           name="Accessories"
         />
       </div>
-                <div className={styles.walletButtons}>
-                    {/* <WalletMultiButton />
+      <div className={styles.walletButtons}>
+        {/* <WalletMultiButton />
                     <WalletDisconnectButton /> */}
-                    {/* <SendOneLamportToRandomAddress/> */}
-                    {/* <SendSPLTokenToAddress/> */}
-                    {/* <SendTransaction/> */}
-                </div>
-
-
-            </main>
-    );
+        {/* <SendOneLamportToRandomAddress/> */}
+        {/* <SendSPLTokenToAddress/> */}
+        {/* <SendTransaction/> */}
+      </div>
+    </main>
+  );
 };
 
 export default Home;
