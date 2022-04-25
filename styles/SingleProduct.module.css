@@ -33,6 +33,7 @@
   text-transform: uppercase;
   border: 2px solid black;
   cursor: pointer;
+  max-height: 3rem;
 }
 
 .button:hover {
@@ -45,6 +46,10 @@
   margin: 0 auto;
 }
 .col5 {
+}
+.containerButton {
+  display: flex;
+  flex-direction: column;
 }
 .col3 {
   flex: 0 0 auto;
@@ -95,6 +100,14 @@
   border-radius: 4px;
   border-top-left-radius: unset;
   border-bottom-left-radius: unset;
+}
+.inputValueEmail {
+  padding: 5px;
+  border: 1px solid rgb(189, 188, 188);
+  border-radius: 4px;
+  border-top-left-radius: unset;
+  border-bottom-left-radius: unset;
+  width: 100%;
 }
 .divContainerInput {
   display: flex;

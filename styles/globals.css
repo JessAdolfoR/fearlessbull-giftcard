@@ -16,12 +16,20 @@ a {
   box-sizing: border-box;
 }
 .button-spl {
-  background: #512da8;
-  color: #fff;
-  border: none;
-  padding: 0.5rem 1rem;
-  margin-left: 1rem;
+  width: 100%;
+  margin-top: 0.5rem;
+  padding: 0.75rem 0;
+  background: transparent;
+  text-transform: uppercase;
+  border: 2px solid black;
   cursor: pointer;
+  max-height: 3rem;
+  max-width: 16rem;
+}
+
+.button-spl:hover {
+  background: black;
+  color: white;
 }
 
 input::-webkit-outer-spin-button,

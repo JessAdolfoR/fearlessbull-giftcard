@@ -4,6 +4,7 @@ import {
   incrementQuantity,
   decrementQuantity,
   removeFromCart,
+  clearCart,
 } from "../redux/cart.slice";
 import styles from "../styles/CartPage.module.css";
 import { SendSPLTokenToAddress } from "../components/wallet/ButtonSpl";
@@ -62,7 +63,10 @@ const CartPage = ({ coins }) => {
             {getTotalPrice() / coins.solana?.usd}{" "}
           </h2>
           Today's price of the coin {coins.solana?.usd}
-          <SendSPLTokenToAddress amount={getTotalPrice() / coins.solana?.usd} />
+          <SendSPLTokenToAddress
+            idProduct={cart[0].id}
+            amount={getTotalPrice() / coins.solana?.usd}
+          />
         </>
       )}
     </div>

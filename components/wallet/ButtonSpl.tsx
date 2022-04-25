@@ -8,8 +8,7 @@ import { clearCart } from "../../redux/cart.slice";
 
 import React, { FC, useCallback } from "react";
 
-export const SendSPLTokenToAddress: FC<any> = ({ amount }) => {
-  console.log(amount);
+export const SendSPLTokenToAddress: FC<any> = ({ amount, idProduct }) => {
   const TOKEN_PUBLIC_KEY = "7c4vgGd2xa8rc2VAFxHsUZvsPBsTmWvmUudpq59SrpTf";
   const RECEIVER_WALLET_PUBLIC_KEY =
     "72VMHx1Lu8tDtCmxU9w1DNwAm9Pb8eFDrTwK4xDySULe";
@@ -80,14 +79,15 @@ export const SendSPLTokenToAddress: FC<any> = ({ amount }) => {
 
     const sig = await sendTransaction(transaction, connection);
     const result = await connection.confirmTransaction(sig);
-    console.log(result);
     dispatch(showSuccess());
-    // dispatch(clearCart());
+    dispatch(clearCart(idProduct));
   }, [publicKey, sendTransaction, connection]);
 
   return (
-    <button className="button-spl" onClick={onClick} disabled={!publicKey}>
-      Send Transition
-    </button>
+    <div>
+      <button className="button-spl" onClick={onClick} disabled={!publicKey}>
+        Buy Now
+      </button>
+    </div>
   );
 };
